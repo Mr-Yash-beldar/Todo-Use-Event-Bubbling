@@ -10,6 +10,8 @@ body {
 header {
   background-color: #09122c;
   color: rgb(233, 150, 56);
+  border: #070707;
+  border-radius: 20px;
   padding: 10px 0;
   font-family: "Courier New", Courier, monospace;
   text-align: center;
@@ -40,12 +42,14 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #872341;
+  w
 }
 
 #todo-form {
-  margin-top: 0%;
+  width: 65%;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,7 +91,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  
+
 }
 
 .todo-card-buttons button {
@@ -194,4 +198,71 @@ form textarea {
 
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .todo-list-container,
+  #todo-form-container {
+    flex: none;
+    width: 100%;
+    padding: 10px;
+  }
+
+  #todo-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .todo-card {
+    padding: 10px;
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .button-55 {
+    width: 150px;
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  header {
+    font-size: 18px;
+    padding: 5px 0;
+  }
+
+  #todo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-card {
+    width: 90%;
+    padding: 8px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .button-55 {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
 }

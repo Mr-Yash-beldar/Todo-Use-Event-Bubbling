@@ -4,7 +4,18 @@ const todoTitle = document.getElementById("todo-title");
 const todoDesc = document.getElementById("todo-desc");
 const todoDate = document.getElementById("todo-date");
 
+const welcomeTodo = {
+  id: 0,
+  title: "Welcome to Todo App",
+  description: "This with ❤️ by Yashodip Beldar .",
+  date: "2021-09-01",
+  status: "pending",
+};
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
+if (todos.length === 0) {
+  todos.push(welcomeTodo);
+  saveTodos();
+}
 let editingId = null;
 
 function getTodos(filteredTodos = todos) {
@@ -12,7 +23,7 @@ function getTodos(filteredTodos = todos) {
   filteredTodos.forEach((todo) => {
     const todoCard = document.createElement("div");
     todoCard.className = "todo-card";
-    if(todo.status == "done") {
+    if (todo.status == "done") {
       todoCard.classList.add("done");
     }
     todoCard.dataset.id = todo.id;
@@ -56,7 +67,7 @@ todoForm.addEventListener("submit", (e) => {
       title,
       description,
       date,
-      status: 'pending',
+      status: "pending",
     };
     todos.push(newTodo);
   }
@@ -85,7 +96,7 @@ todoList.addEventListener("click", (e) => {
     saveTodos();
   } else if (target.classList.contains("check")) {
     const todo = todos.find((todo) => todo.id === id);
-    todo.status =todo.status == "done" ? "pending" : "done";
+    todo.status = todo.status == "done" ? "pending" : "done";
     saveTodos();
     getTodos();
   }
