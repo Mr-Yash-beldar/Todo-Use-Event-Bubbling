@@ -138,8 +138,21 @@ form textarea {
 }
 
 .done {
-  text-decoration: line-through;
+ 
   color: #555;
+}
+.done .todo-card-title{
+  text-decoration: line-through;
+}
+.done .todo-card-desc{
+  text-decoration: line-through;
+}
+.done .todo-card-meta{
+  text-decoration: line-through;
+}
+.done .todo-card-buttons button.check{
+  background-color: #ccc;
+  color: #e23a3a;
 }
 
 #filter-bar {
